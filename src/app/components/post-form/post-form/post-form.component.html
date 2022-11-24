@@ -1,1 +1,19 @@
-<p>post-form works!</p>
+<div class="form-body">
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+        <div class="form-group">
+            <label for="title">Titre</label>
+            <input type="text" [(ngModel)]="post.title"
+            class="form-control"
+            id="title"
+            name="title"
+            required #title="ngModel">
+            <label for="content">Contenu</label>
+            <input type="text" [(ngModel)]="post.content"
+            class="form-control"
+            id="content"
+            name="content"
+            required #content="ngModel">
+            <button type="submit" class="form-btn">Créer</button>
+        </div>
+    </form>
+</div>

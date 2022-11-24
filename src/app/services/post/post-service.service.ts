@@ -22,6 +22,12 @@ export class PostService {
   }
 
   public save(post: Post) {
-    return this.http.post<Post>(this.postUrl, post);
+    let base64encodedData = Buffer.from("Dylan" + ':' + "123456789").toString('base64');
+    return this.http.post<Post>(this.postUrl, post, {
+      headers: {
+        'Authorization': 'Basic ' + base64encodedData
+      },
+    });
   }
 }
+
