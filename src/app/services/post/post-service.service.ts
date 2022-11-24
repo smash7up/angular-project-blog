@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Post } from 'src/app/post';
 import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class PostService {
@@ -13,7 +13,12 @@ export class PostService {
   }
 
   public findAll(): Observable<Post[]> {
-    return this.http.get<Post[]>(this.postUrl);
+    let base64encodedData = Buffer.from("Dylan" + ':' + "123456789").toString('base64');
+    return this.http.get<Post[]>(this.postUrl, {
+      headers: {
+        'Authorization': 'Basic ' + base64encodedData
+      },
+    })
   }
 
   public save(post: Post) {
