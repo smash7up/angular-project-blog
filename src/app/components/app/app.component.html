@@ -1,2 +1,18 @@
-<h1>{{ title }}</h1>
+<div class="app-body">
+    <div class="header">
+        <h1>Bienvenue sur mon blog !</h1>
+        <h6>Ici, vous êtes libres de publier ce que bon vous semble !</h6>
+    </div>
+    <div>
+        <ul class="navbar">
+     
+            <li><a routerLink="/posts" class="nav-link">Voir les publications</a></li>
+            <li><a routerLink="/addposts" class="nav-link">Créer une publication</a></li>
+            <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Admin</a></li>
+            <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Deconnexion</a></li>
+          </ul>
+    </div>
+</div>
+
+
 <router-outlet></router-outlet>

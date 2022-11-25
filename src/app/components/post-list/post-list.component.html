@@ -1,12 +1,10 @@
 <div class="post-block">
     <div class="post-body">
-        <div class="post-create">
-            <a routerLink="/addposts">Ajouter une publication</a>
-        </div>
         <div class="post-list">
             <ul>
                 <li *ngFor="let post of posts">
-                    {{ post.title }}
+                    <h1>{{ post.title }}</h1>
+                    <p>{{ post.content }}</p>
                 </li>
             </ul>
         </div>
